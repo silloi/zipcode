@@ -1,0 +1,31 @@
+<header>
+    <h1>ZIP CODE BATTLER</h1>
+    <p>この夏、一番強い郵便番号を決めよう</p>
+</header>
+<main>
+    <article>
+        <h2>対戦</h2>
+        <%= form_with url: "/match/go" do |form| %>
+            <p>郵便番号</p>
+            <%= form.text_field :zipcode %>
+            <p>例：1234567</p>
+            <%= form.submit "Go" %>
+        <% end %>
+    </article>
+    <article>
+    <h2>累計ランキング</h2>
+        <% @users.each do |user| %>
+            <section class="ranking-item">
+                <%= user.id %>
+                <%= user.zipcode %>
+            </section>
+        <% end %>
+    </article>
+    <aside>
+        <h2>ツイート</h2>
+        <p>（ウィジェット）</p>
+    </aside>
+    <footer>
+        <p>© 2018 Silloi</p>
+    </footer>
+</main>
